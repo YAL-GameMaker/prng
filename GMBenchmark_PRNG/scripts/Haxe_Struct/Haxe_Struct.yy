@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Haxe_Struct",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Haxe_Struct",
+  "parent":{
+    "name":"Haxe",
+    "path":"folders/Tests/Haxe.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"EmuCheckbox",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"EmuCheckbox",
+  "parent":{
+    "name":"Core",
+    "path":"folders/Emu/Core.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

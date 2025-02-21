@@ -1,0 +1,3 @@
+gml.hxml
+-D rng.struct
+--js GMBenchmark_PRNG/scripts/Haxe_Struct/Haxe_Struct.yy._

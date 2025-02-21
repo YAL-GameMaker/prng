@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Emu_Core",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Emu_Core",
+  "parent":{
+    "name":"Core",
+    "path":"folders/Emu/Core.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

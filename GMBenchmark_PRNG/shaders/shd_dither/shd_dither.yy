@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"shd_dither",
+  "name":"shd_dither",
+  "parent":{
+    "name":"Internals",
+    "path":"folders/Internals.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

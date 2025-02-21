@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"EmuRadioArray",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"EmuRadioArray",
+  "parent":{
+    "name":"Core",
+    "path":"folders/Emu/Core.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,11 @@
+{
+  "$GMNotes":"",
+  "%Name":"readme_please",
+  "name":"readme_please",
+  "parent":{
+    "name":"Emu",
+    "path":"folders/Emu.yy",
+  },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"bm_well512",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"bm_well512",
+  "parent":{
+    "name":"WELL512",
+    "path":"folders/Tests/WELL512.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

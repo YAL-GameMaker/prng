@@ -1,0 +1,3 @@
+gml.hxml
+-D rng.global
+--js GMBenchmark_PRNG/scripts/Haxe_Global/Haxe_Global.yy._

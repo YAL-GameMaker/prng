@@ -1,0 +1,7 @@
+{
+    "autoArrowFunctions":true,
+    "linterPrefs":{
+        "specTypeInst":true,
+        "specTypeVar":true
+    }
+}

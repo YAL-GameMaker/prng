@@ -1,0 +1,5 @@
+build-struct.hxml
+--next
+build-flat.hxml
+--next
+build-global.hxml

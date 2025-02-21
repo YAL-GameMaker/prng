@@ -1,0 +1,3 @@
+gml.hxml
+-D rng.flat
+--js GMBenchmark_PRNG/scripts/Haxe_Flat/Haxe_Flat.yy._
