@@ -59,11 +59,6 @@ function bm_rand0(){
 	return new Benchmark("Rand0", tests)
 }
 function scr_verify_rand0() {
-	var _seed = 12345678;
-	//
-	var _state = int64(_seed);
-	_state = ((_state * 1103515245 + 12345) & 2147483647);
-	trace("start", _state);
 	//
 	var cpp = new Rand0();
 	cpp.setSeed(_seed);

@@ -3,6 +3,7 @@
 	https://sourceware.org/git/?p=glibc.git;a=blob;f=stdlib/random_r.c;hb=glibc-2.28
 **/
 
+import gml.Syntax;
 import gml.NativeType;
 import gml.io.Buffer;
 
@@ -25,7 +26,7 @@ import gml.io.Buffer;
 	}
 	//
 	public inline function next() {
-		state = (state * 1103515245 + 12345) & mask;
+		state = (state * Syntax.code("int64({0})", 1103515245) + 12345) & mask;
 		return state;
 	}
 	public inline function value() {
