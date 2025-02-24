@@ -34,7 +34,6 @@
     {"$GMFolder":"","%Name":"Superfonts","folderPath":"folders/Scribble/Superfonts.yy","name":"Superfonts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Tests","folderPath":"folders/Tests.yy","name":"Tests","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Haxe","folderPath":"folders/Tests/Haxe.yy","name":"Haxe","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"WELL512","folderPath":"folders/Tests/WELL512.yy","name":"WELL512","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"PRNG.html","CopyToMask":-1,"filePath":"datafiles","name":"PRNG.html","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
@@ -98,7 +97,9 @@
     {"id":{"name":"__scribble_tick","path":"scripts/__scribble_tick/__scribble_tick.yy",},},
     {"id":{"name":"benchmark_helper_code","path":"scripts/benchmark_helper_code/benchmark_helper_code.yy",},},
     {"id":{"name":"bm_minstd","path":"scripts/bm_minstd/bm_minstd.yy",},},
+    {"id":{"name":"bm_rand0","path":"scripts/bm_rand0/bm_rand0.yy",},},
     {"id":{"name":"bm_well512","path":"scripts/bm_well512/bm_well512.yy",},},
+    {"id":{"name":"bm_xorshift64","path":"scripts/bm_xorshift64/bm_xorshift64.yy",},},
     {"id":{"name":"draw_text_scribble_ext","path":"scripts/draw_text_scribble_ext/draw_text_scribble_ext.yy",},},
     {"id":{"name":"draw_text_scribble","path":"scripts/draw_text_scribble/draw_text_scribble.yy",},},
     {"id":{"name":"Emu_Core","path":"scripts/Emu_Core/Emu_Core.yy",},},

@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"bm_minstd",
   "parent":{
-    "name":"WELL512",
-    "path":"folders/Tests/WELL512.yy",
+    "name":"Tests",
+    "path":"folders/Tests.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

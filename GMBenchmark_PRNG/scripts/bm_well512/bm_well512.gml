@@ -1,46 +1,71 @@
 #macro WELL512_SEED 1612
 #macro WELL512_MIN 378
 #macro WELL512_MAX 1234
+
 function TC_WELL512_GM(name) : TC(name) constructor {
 	init = function() {;random_set_seed(WELL512_SEED);}
-	fn = function(n) {;repeat (n) random(WELL512_MAX);}
+	fn = function(n) {
+		var r = 0;
+		repeat (n) r += random(WELL512_MAX);
+		return r;
+	};
 }
-//
+// Haxe-GML:
 function TC_WELL512_HxStruct(name) : TC(name) constructor {
 	rng = new hxWELL512();
 	init = function() {;rng.setSeed(WELL512_SEED);}
-	fn = function(n) {;repeat (n) rng.float(WELL512_MAX);}
+	fn = function(n) {
+		var r = 0;
+		repeat (n) r += rng.float(WELL512_MAX);
+		return r;
+	};
 }
 function TC_WELL512_HxFlat(name) : TC(name) constructor {
 	rng = hx_well512_create();
 	init = function() {;hx_well512_set_seed(rng, WELL512_SEED);}
-	fn = function(n) {;repeat (n) hx_well512_float(rng, WELL512_MAX);}
+	fn = function(n) {
+		var r = 0;
+		repeat (n) r += hx_well512_float(rng, WELL512_MAX);
+		return r;
+	};
 }
 function TC_WELL512_HxGlobal(name) : TC(name) constructor {
 	init = function() {;ghx_well512_set_seed(WELL512_SEED);}
-	fn = function(n) {;repeat (n) ghx_well512_float(WELL512_MAX);}
+	fn = function(n) {
+		var r = 0;
+		repeat (n) r += ghx_well512_float(WELL512_MAX);
+		return r;
+	};
 }
-// C++
+// C++:
 function TC_WELL512_Struct(name) : TC(name) constructor {
 	rng = new WELL512();
 	init = function() {;rng.setSeed(WELL512_SEED);}
-	fn = function(n) {;repeat (n) rng.float(WELL512_MAX);}
+	fn = function(n) {
+		var r = 0;
+		repeat (n) r += rng.float(WELL512_MAX);
+		return r;
+	};
 }
 function TC_WELL512_Flat(name) : TC(name) constructor {
 	rng = well512_create() /*#as WELL512*/;
 	init = function() {;well512_set_seed(rng, WELL512_SEED);}
-	fn = function(n) {;repeat (n) well512_float(rng, WELL512_MAX);}
+	fn = function(n) {
+		var r = 0;
+		repeat (n) r += well512_float(rng, WELL512_MAX);
+		return r;
+	};
 }
 function TC_WELL512_Unsafe(name) : TC(name) constructor {
 	rng = well512_create()[1];
 	init = function() {return well512_set_seed_raw(rng, WELL512_SEED)};
-	fn = function(n) {;repeat (n) well512_float_raw(rng, WELL512_MAX);}
+	fn = function(n) {
+		var r = 0;
+		repeat (n) r += well512_float_raw(rng, WELL512_MAX);
+		return r;
+	};
 }
-function TC_WELL512_YYRI(name) : TC(name) constructor {
-	rng = yyri_well512_create();
-	init = function() {;yyri_well512_set_seed(rng, WELL512_SEED);}
-	fn = function(n) {;repeat (n) yyri_well512_float(rng, WELL512_MAX);}
-}
+//
 /*function TC_WELL512_Nik(name) : TC(name) constructor {
 	rng = new rerand();
 	init = () => ;rng.InitRandom(WELL512_SEED);
@@ -48,17 +73,19 @@ function TC_WELL512_YYRI(name) : TC(name) constructor {
 }*/
 
 function bm_well512(){
-	return new Benchmark("WELL512", [
+	var tests/*:Array<TC>*/ = [
 		new TC_WELL512_GM("Built-in"),
 		new TC_WELL512_HxStruct("GML, struct"),
 		new TC_WELL512_HxFlat("GML, array"),
 		new TC_WELL512_HxGlobal("GML, global"),
 		//new TC_WELL512_Nik("GML, Nik's impl"),
+	];
+	if (os_type == os_windows) array_push(tests,
 		new TC_WELL512_Struct("C++ & GM structs"),
 		new TC_WELL512_Flat("C++ & GM arrays"),
 		new TC_WELL512_Unsafe("C++ & raw pointers"),
-		new TC_WELL512_YYRI("C++ & YYRI"),
-	]);
+	);
+	return new Benchmark("WELL512", tests);
 }
 function scr_verify_well512() {
 	random_set_seed(WELL512_SEED);

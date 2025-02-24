@@ -10,10 +10,8 @@ echo Running post-build for %config%
 set extName=PRNG
 set dllName=PRNG
 set gmlDir14=%solutionDir%PRNG.gmx
-set gmlDir22=%solutionDir%PRNG_yy
 set gmlDir23=%solutionDir%GMBenchmark_PRNG
 set ext14=%gmlDir14%\extensions\%extName%
-set ext22=%gmlDir22%\extensions\%extName%
 set ext23=%gmlDir23%\extensions\%extName%
 set dllRel=%dllName%.dll
 set cppRel=%dllName%.cpp
@@ -25,8 +23,6 @@ set docPath=%solutionDir%export\%docName%
 echo Copying documentation...
 if not exist "%gmlDir23%\datafiles" mkdir "%gmlDir23%\datafiles"
 copy /Y %docPath% "%gmlDir23%\datafiles\%docName%"
-if not exist "%gmlDir22%\datafiles" mkdir "%gmlDir22%\datafiles"
-copy /Y %docPath% "%gmlDir22%\datafiles\%docName%"
 if not exist "%gmlDir14%\datafiles" mkdir "%gmlDir14%\datafiles"
 copy /Y %docPath% "%gmlDir14%\datafiles\%docName%"
 
@@ -40,11 +36,6 @@ if %ERRORLEVEL% EQU 0 (
 	
 	gmxgen "%ext23%\%extName%.yy" ^
 	--copy "%dllPath%" "%dllRel%:%arch%"
-
-	gmxgen "%ext22%\%extName%.yy" ^
-	--copy "%dllPath%" "%dllRel%:%arch%" ^
-	--copy "%cppPath%" "%cppRel%" ^
-	--copy "%gmlPath%" "*.gml"
 	
 	gmxgen "%ext14%.extension.gmx" ^
 	--copy "%dllPath%" "%dllRel%:%arch%" ^
@@ -57,7 +48,6 @@ if %ERRORLEVEL% EQU 0 (
 	if "%arch%" EQU "x64" (
 		copy /Y "%dllPath%" "%ext23%\%dllName%_x64.dll"
 	) else (
-		copy /Y "%dllPath%" "%ext22%\%dllRel%"
 		copy /Y "%dllPath%" "%ext23%\%dllRel%"
 		copy /Y "%dllPath%" "%ext14%\%dllRel%"
 	)

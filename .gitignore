@@ -23,3 +23,5 @@ export/*.zip
 help.rtf
 /GMBenchmark_PRNG/scripts/Haxe_*/*.gml
 /GMBenchmark_PRNG/scripts/PRNG_extras/PRNG_extras.gml
+/PRNG/autogen.cpp
+sf.sfdump

@@ -16,5 +16,8 @@ if %ERRORLEVEL% EQU 0 (
 	--gml "%solutionDir%GMBenchmark_PRNG/extensions/PRNG/autogen.gml"^
 	--gml-constructors "%solutionDir%GMBenchmark_PRNG/scripts/PRNG_extras/PRNG_extras.gml"^
 	--include "WELL512.h"^
+	--include "MINSTD.h"^
+	--include "XorShift64.h"^
+	--include "Rand0.h"^
 	%projectDir%*.cpp
 )

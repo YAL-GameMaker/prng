@@ -9,11 +9,6 @@ function WELL512() constructor {
 		__ptr__ = ptr(buffer_peek(_buf, 0, buffer_u64));
 	} else __ptr__ = pointer_null;
 $code
-
-	/// @param ...values
-	static pick = function() {
-		return argument[0 | float(argument_count)];
-	}
 }
 */
 dllg gml_ptr<WELL512> well512_create() {
@@ -31,13 +26,8 @@ dllg void well512_set_seed(gml_ptr<WELL512> rng, uint32_t new_seed) {
 }
 
 // @dllg:method :uint32
-dllg uint32_t well512_uint32(gml_ptr<WELL512> rng) {
+dllg uint32_t well512_next(gml_ptr<WELL512> rng) {
 	return rng->next();
-}
-
-// @dllg:method :bits
-dllg uint32_t well512_bits(gml_ptr<WELL512> rng, int count) {
-	return rng->next() >> (32 - count);
 }
 
 // @dllg:method :float
@@ -51,19 +41,60 @@ dllg double well512_float_range(gml_ptr<WELL512> rng, double min, double max) {
 }
 
 // @dllg:method :int
-dllg int well512_int(gml_ptr<WELL512> rng, int max) {
-	return (int)(rng->value() * (max + 1));
+dllg double well512_int(gml_ptr<WELL512> rng, double max) {
+	auto r = (int64_t)rng->next();
+	auto imax = (int64_t)max;
+	if (imax == 0) {
+		return 0;
+	} else if (imax < 0) {
+		return (double) -(r % (1i64 - imax));
+	} else {
+		return (double) (r % (1i64 + imax));
+	}
 }
 
 // @dllg:method :intRange
-dllg int well512_int_range(gml_ptr<WELL512> rng, int min, int max) {
-	int start, range;
+dllg double well512_int_range(gml_ptr<WELL512> rng, double min, double max) {
+	int64_t start, range;
+	if (min < max) {
+		start = (int64_t)min;
+		range = (int64_t)max - start + 1;
+	} else {
+		start = (int64_t)max;
+		range = (int64_t)min - start + 1;
+	}
+	int64_t r = rng->next();
+	if (range == 0) {
+		return 0;
+	} else {
+		return (double) (start + (r % range));
+	}
+}
+
+// @dllg:method :intGM
+dllg double well512_int_gm(gml_ptr<WELL512> rng, double maxIncl) {
+	int64_t low = rng->next();
+	int64_t high = rng->next();
+	int64_t r = low | ((high & 0x7FffFFff) << 32);
+	int64_t max = (int64_t)maxIncl;
+	if (max < 0) {
+		return (double)(-(r % (1 - max)));
+	} else {
+		return (double)(r % (1 + max));
+	}
+}
+
+// @dllg:method :intRangeGM
+dllg double well512_int_range_gm(gml_ptr<WELL512> rng, double minIncl, double maxIncl) {
+	auto min = (int64_t)minIncl;
+	auto max = (int64_t)maxIncl;
+	int64_t start, range;
 	if (min < max) {
 		start = min;
-		range = max - min + 1;
+		range = max - min;
 	} else {
 		start = max;
-		range = min - max + 1;
+		range = min - max;
 	}
-	return start + (int)(rng->value() * range);
+	return (double)start + well512_int_gm(rng, (double)range);
 }

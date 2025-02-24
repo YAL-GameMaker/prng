@@ -48,13 +48,196 @@
       <ProxyFiles/>
       <functions>
         <function>
-          <name>prng_init_protos</name>
-          <externalName>prng_init_protos</externalName>
+          <name>minstd_create_raw</name>
+          <externalName>minstd_create_raw</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>-1</argCount>
-          <args/>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_destroy_raw</name>
+          <externalName>minstd_destroy_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_set_seed_raw</name>
+          <externalName>minstd_set_seed_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_next_raw</name>
+          <externalName>minstd_next_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_float_raw</name>
+          <externalName>minstd_float_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_float_range_raw</name>
+          <externalName>minstd_float_range_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_int_raw</name>
+          <externalName>minstd_int_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_int_range_raw</name>
+          <externalName>minstd_int_range_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_create_raw</name>
+          <externalName>rand0_create_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_destroy_raw</name>
+          <externalName>rand0_destroy_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_set_seed_raw</name>
+          <externalName>rand0_set_seed_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_next_raw</name>
+          <externalName>rand0_next_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_float_raw</name>
+          <externalName>rand0_float_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_float_range_raw</name>
+          <externalName>rand0_float_range_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_int_raw</name>
+          <externalName>rand0_int_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_int_range_raw</name>
+          <externalName>rand0_int_range_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
         </function>
         <function>
           <name>well512_create_raw</name>
@@ -92,26 +275,14 @@
           </args>
         </function>
         <function>
-          <name>well512_uint32_raw</name>
-          <externalName>well512_uint32_raw</externalName>
+          <name>well512_next_raw</name>
+          <externalName>well512_next_raw</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
             <arg>1</arg>
-          </args>
-        </function>
-        <function>
-          <name>well512_bits_raw</name>
-          <externalName>well512_bits_raw</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>2</argCount>
-          <args>
-            <arg>1</arg>
-            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -165,54 +336,127 @@
           </args>
         </function>
         <function>
-          <name>yyri_well512_create_raw</name>
-          <externalName>yyri_well512_create_raw_yyr</externalName>
-          <kind>1</kind>
-          <help>yyri_well512_create_raw()</help>
-          <returnType>2</returnType>
-          <argCount>-1</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>yyri_well512_set_seed</name>
-          <externalName>yyri_well512_set_seed_yyr</externalName>
-          <kind>1</kind>
-          <help>yyri_well512_set_seed(rng, seed)</help>
-          <returnType>2</returnType>
-          <argCount>-1</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>yyri_well512_float</name>
-          <externalName>yyri_well512_float_yyr</externalName>
-          <kind>1</kind>
-          <help>yyri_well512_float(rng, _max)</help>
-          <returnType>2</returnType>
-          <argCount>-1</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>prng_init_1</name>
-          <externalName>prng_init_1</externalName>
+          <name>well512_int_gm_raw</name>
+          <externalName>well512_int_gm_raw</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>4</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>well512_int_range_gm_raw</name>
+          <externalName>well512_int_range_gm_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
             <arg>1</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_create_raw</name>
+          <externalName>xorshift64_create_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
             <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_destroy_raw</name>
+          <externalName>xorshift64_destroy_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
             <arg>1</arg>
           </args>
         </function>
         <function>
-          <name>prng_init_array</name>
-          <externalName>prng_init_array</externalName>
+          <name>xorshift64_set_seed_raw</name>
+          <externalName>xorshift64_set_seed_raw</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>-1</argCount>
-          <args/>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_next_raw</name>
+          <externalName>xorshift64_next_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_float_raw</name>
+          <externalName>xorshift64_float_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_float_range_raw</name>
+          <externalName>xorshift64_float_range_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_int_raw</name>
+          <externalName>xorshift64_int_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_int_range_raw</name>
+          <externalName>xorshift64_int_range_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
         </function>
       </functions>
       <constants/>
@@ -251,24 +495,6 @@
             <arg>2</arg>
           </args>
         </function>
-        <function>
-          <name>uwell512_create</name>
-          <externalName>uwell512_create</externalName>
-          <kind>2</kind>
-          <help>uwell512_create()-&gt;</help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>yyri_well512_create</name>
-          <externalName>yyri_well512_create</externalName>
-          <kind>2</kind>
-          <help>yyri_well512_create()</help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
       </functions>
       <constants/>
     </file>
@@ -286,6 +512,192 @@
       </ConfigOptions>
       <ProxyFiles/>
       <functions>
+        <function>
+          <name>minstd_create</name>
+          <externalName>minstd_create</externalName>
+          <kind>2</kind>
+          <help>minstd_create()-&gt;</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>minstd_destroy</name>
+          <externalName>minstd_destroy</externalName>
+          <kind>2</kind>
+          <help>minstd_destroy(rng)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_set_seed</name>
+          <externalName>minstd_set_seed</externalName>
+          <kind>2</kind>
+          <help>minstd_set_seed(rng, new_seed:int)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_next</name>
+          <externalName>minstd_next</externalName>
+          <kind>2</kind>
+          <help>minstd_next(rng)-&gt;int</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_float</name>
+          <externalName>minstd_float</externalName>
+          <kind>2</kind>
+          <help>minstd_float(rng, max:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_float_range</name>
+          <externalName>minstd_float_range</externalName>
+          <kind>2</kind>
+          <help>minstd_float_range(rng, min:number, max:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_int</name>
+          <externalName>minstd_int</externalName>
+          <kind>2</kind>
+          <help>minstd_int(rng, max:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_int_range</name>
+          <externalName>minstd_int_range</externalName>
+          <kind>2</kind>
+          <help>minstd_int_range(rng, min:number, max:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_create</name>
+          <externalName>rand0_create</externalName>
+          <kind>2</kind>
+          <help>rand0_create()-&gt;</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>rand0_destroy</name>
+          <externalName>rand0_destroy</externalName>
+          <kind>2</kind>
+          <help>rand0_destroy(rng)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_set_seed</name>
+          <externalName>rand0_set_seed</externalName>
+          <kind>2</kind>
+          <help>rand0_set_seed(rng, new_seed:int)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_next</name>
+          <externalName>rand0_next</externalName>
+          <kind>2</kind>
+          <help>rand0_next(rng)-&gt;int</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_float</name>
+          <externalName>rand0_float</externalName>
+          <kind>2</kind>
+          <help>rand0_float(rng, max:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_float_range</name>
+          <externalName>rand0_float_range</externalName>
+          <kind>2</kind>
+          <help>rand0_float_range(rng, min:number, max:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_int</name>
+          <externalName>rand0_int</externalName>
+          <kind>2</kind>
+          <help>rand0_int(rng, max:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_int_range</name>
+          <externalName>rand0_int_range</externalName>
+          <kind>2</kind>
+          <help>rand0_int_range(rng, min:number, max:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
         <function>
           <name>well512_create</name>
           <externalName>well512_create</externalName>
@@ -319,25 +731,13 @@
           </args>
         </function>
         <function>
-          <name>well512_uint32</name>
-          <externalName>well512_uint32</externalName>
+          <name>well512_next</name>
+          <externalName>well512_next</externalName>
           <kind>2</kind>
-          <help>well512_uint32(rng)-&gt;int</help>
+          <help>well512_next(rng)-&gt;int</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>well512_bits</name>
-          <externalName>well512_bits</externalName>
-          <kind>2</kind>
-          <help>well512_bits(rng, count:int)-&gt;int</help>
-          <returnType>2</returnType>
-          <argCount>2</argCount>
-          <args>
-            <arg>2</arg>
             <arg>2</arg>
           </args>
         </function>
@@ -370,7 +770,7 @@
           <name>well512_int</name>
           <externalName>well512_int</externalName>
           <kind>2</kind>
-          <help>well512_int(rng, max:int)-&gt;int</help>
+          <help>well512_int(rng, max:number)-&gt;number</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -382,7 +782,125 @@
           <name>well512_int_range</name>
           <externalName>well512_int_range</externalName>
           <kind>2</kind>
-          <help>well512_int_range(rng, min:int, max:int)-&gt;int</help>
+          <help>well512_int_range(rng, min:number, max:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>well512_int_gm</name>
+          <externalName>well512_int_gm</externalName>
+          <kind>2</kind>
+          <help>well512_int_gm(rng, maxIncl:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>well512_int_range_gm</name>
+          <externalName>well512_int_range_gm</externalName>
+          <kind>2</kind>
+          <help>well512_int_range_gm(rng, minIncl:number, maxIncl:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_create</name>
+          <externalName>xorshift64_create</externalName>
+          <kind>2</kind>
+          <help>xorshift64_create()-&gt;</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>xorshift64_destroy</name>
+          <externalName>xorshift64_destroy</externalName>
+          <kind>2</kind>
+          <help>xorshift64_destroy(rng)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_set_seed</name>
+          <externalName>xorshift64_set_seed</externalName>
+          <kind>2</kind>
+          <help>xorshift64_set_seed(rng, new_seed:int)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_next</name>
+          <externalName>xorshift64_next</externalName>
+          <kind>2</kind>
+          <help>xorshift64_next(rng)-&gt;int</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_float</name>
+          <externalName>xorshift64_float</externalName>
+          <kind>2</kind>
+          <help>xorshift64_float(rng, max:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_float_range</name>
+          <externalName>xorshift64_float_range</externalName>
+          <kind>2</kind>
+          <help>xorshift64_float_range(rng, min:number, max:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_int</name>
+          <externalName>xorshift64_int</externalName>
+          <kind>2</kind>
+          <help>xorshift64_int(rng, max:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_int_range</name>
+          <externalName>xorshift64_int_range</externalName>
+          <kind>2</kind>
+          <help>xorshift64_int_range(rng, min:number, max:number)-&gt;number</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>

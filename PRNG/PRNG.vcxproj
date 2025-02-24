@@ -172,10 +172,13 @@
   <ItemGroup>
     <ClInclude Include="gml_ext.h" />
     <ClInclude Include="gml_extm.h" />
+    <ClInclude Include="MINSTD.h" />
+    <ClInclude Include="Rand0.h" />
     <ClInclude Include="resource1.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="WELL512.h" />
+    <ClInclude Include="XorShift64.h" />
     <ClInclude Include="YYRunnerInterface.h" />
   </ItemGroup>
   <ItemGroup>
@@ -194,11 +197,12 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="MINSTD.cpp" />
     <ClCompile Include="PRNG.cpp" />
-    <ClCompile Include="prng_init.cpp" />
+    <ClCompile Include="Rand0.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="WELL512.cpp" />
-    <ClCompile Include="WELL512_yyri.cpp" />
+    <ClCompile Include="XorShift64.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PRNG.rc" />

@@ -1,18 +1,21 @@
-import gml.Mathf;
+/**
+	Best known as type-0 RNG in GLIBC!
+	https://sourceware.org/git/?p=glibc.git;a=blob;f=stdlib/random_r.c;hb=glibc-2.28
+**/
+
+import gml.NativeType;
 import gml.io.Buffer;
 
-/**
-	https://en.wikipedia.org/wiki/Lehmer_random_number_generator#Parameters_in_common_use
-**/
-@:keep class MINSTD implements IRNG {
-	extern static inline var M = 2147483647;
-	var state:Int = 0;
+@:keep class Rand0 implements IRNG {
+	static inline var mask = 0x7fffffff;
+	static inline var div = 2147483648.0;
+	public var state:Int = 0;
 	public function new() {
 		
 	}
 	//
 	public function setSeed(seed:Int):Void {
-		state = seed == 0 ? 1 : seed;
+		state = cast NativeType.toInt64(seed == 0 ? 1 : seed);
 	}
 	public function save(buf:Buffer):Void {
 		buf.writeIntUnsigned(state);
@@ -21,11 +24,13 @@ import gml.io.Buffer;
 		state = buf.readIntUnsigned();
 	}
 	//
-	public inline function value() {
-		state = (state * 48271) % M;
-		return state / M;
+	public inline function next() {
+		state = (state * 1103515245 + 12345) & mask;
+		return state;
 	}
-	//
+	public inline function value() {
+		return next() / div;
+	}
 	public function float(maxExcl:Float):Float {
 		return value() * maxExcl;
 	}

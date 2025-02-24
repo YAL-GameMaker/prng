@@ -333,6 +333,7 @@ using YYArrayItems = YYRest;
 #define __YYArg_YYArrayItems(name, v, i) if (!arg[i].tryGetArrayItems(v.items, v.length)) __YYArgError(name, "an array", i);
 
 // Custom:
+#define __YYArg_gml_ptr_of_WELL512(name, v, i) if (!arg[i].tryUnwrapArray<WELL512>(&v, gmlProtoOf.WELL512)) __YYArgError(name, "a WELL512 struct", i);
 #define __YYArg_WELL512_ptr(name, v, i) if (!arg[i].tryUnwrapArray<WELL512>(&v, gmlProtoOf.WELL512)) __YYArgError(name, "a WELL512 struct", i);
 //#define __YYArg_WELL512_ptr(name, v, i) if (!arg[i].tryUnwrapStruct<WELL512>(&v, gmlClassOf.WELL512)) __YYArgError(name, "a WELL512 struct", i);
 //if (!arg[i].tryGetPtrExt<WELL512>(v)) __YYArgError(name, "a pointer", i);

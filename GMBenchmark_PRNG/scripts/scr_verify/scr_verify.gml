@@ -12,4 +12,8 @@ function verify() {
 }
 function scr_verify(){
 	scr_verify_well512();
+	if (os_type == os_windows) {
+		scr_verify_xorshift64();
+		scr_verify_rand0();
+	}
 }

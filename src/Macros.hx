@@ -13,6 +13,15 @@ class Macros {
 			case TInst(_.get() => _ct, params): _ct;
 			default: Context.error("Should be tagging a class, got " + type, pos);
 		}
+		inline function getSnakeName() {
+			var name = ct.name;
+			var m = ct.meta.extract(":snakeName");
+			if (m.length > 0) switch (m[0].params[0].expr) {
+				case EConst(CString(s)): name = s;
+				default:
+			};
+			return toSnakeCase(name);
+		}
 		inline function addMeta(tag:String, ?param:String) {
 			ct.meta.add(tag, param != null ? [macro $v{param}] : [], pos);
 		}
@@ -34,10 +43,10 @@ class Macros {
 			}
 		}
 		for (fd in remove) fields.remove(fd);
-		ct.meta.add(":native", [macro $v{"ghx_" + toSnakeCase(ct.name)}], pos);
+		ct.meta.add(":native", [macro $v{"ghx_" + getSnakeName()}], pos);
 		#elseif rng.flat
 		ct.meta.add(":gml.linear", [], pos);
-		ct.meta.add(":native", [macro $v{"hx_" + toSnakeCase(ct.name)}], pos);
+		ct.meta.add(":native", [macro $v{"hx_" + getSnakeName()}], pos);
 		#else // struct
 		ct.meta.add(":native", [macro $v{"hx" + ct.name}], pos);
 		ct.meta.add(":nativeGen", [], pos);

@@ -41,7 +41,8 @@ https://www.lomont.org/papers/2008/Lomont_PRNG_2008.pdf
 		return Syntax.code("({0} & $ffFFffFF)", val);
 	}
 	extern inline function toInt(val:Int):Int {
-		return Syntax.code("({0} | 0)", val);
+		return cast NativeType.toInt64(val);
+		//return Syntax.code("({0} | 0)", val);
 	}
 	extern inline function toReal(val:Int):Float {
 		return NativeType.toReal(val);
@@ -124,9 +125,5 @@ https://www.lomont.org/papers/2008/Lomont_PRNG_2008.pdf
 			range = Std.int(minIncl) - start;
 		}
 		return start + intGM(range);
-	}
-	//
-	public function pick<T>(args:SfRest<T>) {
-		return args[uint32() % args.length];
 	}
 }

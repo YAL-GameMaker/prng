@@ -9,13 +9,9 @@ interface IRNG {
 	function load(buf:Buffer):Void;
 	//
 	function value():Float;
-	function bits(count:Int):Int;
-	//
 	function float(maxExcl:Float):Float;
 	function floatRange(minIncl:Float, maxExcl:Float):Float;
 	function int(maxIncl:Int):Int;
 	function intRange(minIncl:Int, maxIncl:Int):Int;
-	//
-	function pick<T>(args:SfRest<T>):T;
 	#end
 }

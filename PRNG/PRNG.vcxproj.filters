@@ -39,6 +39,15 @@
     <ClInclude Include="gml_extm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MINSTD.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XorShift64.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rand0.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -56,10 +65,13 @@
     <ClCompile Include="WELL512.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WELL512_yyri.cpp">
+    <ClCompile Include="MINSTD.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="prng_init.cpp">
+    <ClCompile Include="XorShift64.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rand0.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
