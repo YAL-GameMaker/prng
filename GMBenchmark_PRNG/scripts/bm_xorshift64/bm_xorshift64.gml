@@ -51,7 +51,7 @@ function bm_xorshift64(){
 		new TC_Xorshift64_HxFlat("GML, flat"),
 		new TC_Xorshift64_HxGlobal("GML, global"),
 	];
-	if (os_type == os_windows) array_push(tests,
+	if (!os_is_browser && os_type == os_windows) array_push(tests,
 		new TC_Xorshift64_Struct("C++ & GM structs"),
 		new TC_Xorshift64_Flat("C++ & GM arrays"),
 		new TC_Xorshift64_Unsafe("C++ & raw pointers"),

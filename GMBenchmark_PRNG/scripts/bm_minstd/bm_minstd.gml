@@ -51,7 +51,7 @@ function bm_minstd(){
 		new TC_MINSTD_HxFlat("GML, flat"),
 		new TC_MINSTD_HxGlobal("GML, global"),
 	];
-	if (os_type == os_windows) array_push(tests,
+	if (!os_is_browser && os_type == os_windows) array_push(tests,
 		new TC_MINSTD_Struct("C++ & GM structs"),
 		new TC_MINSTD_Flat("C++ & GM arrays"),
 		new TC_MINSTD_Unsafe("C++ & raw pointers"),

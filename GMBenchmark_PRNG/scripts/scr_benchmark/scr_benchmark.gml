@@ -1,4 +1,4 @@
-#macro prng_use_structs 0
+#macro os_is_browser (os_browser != browser_not_a_browser)
 
 function bm_gml_struct() {
 	return new Benchmark("GML, structs", [
@@ -49,17 +49,23 @@ function bm_cpp_unsafe() {
 	]);
 }
 function scr_benchmarks() {
-	//
 	Benchmarks = [
 		bm_gml_struct(),
 		bm_gml_flat(),
 		bm_gml_global(),
+	];
+	//
+	if (!os_is_browser && os_type == os_windows) array_push(Benchmarks,
 		bm_cpp_struct(),
 		bm_cpp_flat(),
 		bm_cpp_unsafe(),
+	);
+	// algos:
+	array_push(Benchmarks,
 		bm_well512(),
 		bm_minstd(),
 		bm_xorshift64(),
 		bm_rand0(),
-	];
+	);
+	//
 }

@@ -25,7 +25,7 @@ dllg void minstd_set_seed(gml_ptr<MINSTD> rng, uint32_t new_seed) {
 	rng->init(new_seed);
 }
 
-// @dllg:method :float
+// @dllg:method :next
 dllg uint32_t minstd_next(gml_ptr<MINSTD> rng) {
 	return rng->next();
 }

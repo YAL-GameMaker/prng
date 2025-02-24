@@ -80,7 +80,7 @@ function bm_well512(){
 		new TC_WELL512_HxGlobal("GML, global"),
 		//new TC_WELL512_Nik("GML, Nik's impl"),
 	];
-	if (os_type == os_windows) array_push(tests,
+	if (!os_is_browser && os_type == os_windows) array_push(tests,
 		new TC_WELL512_Struct("C++ & GM structs"),
 		new TC_WELL512_Flat("C++ & GM arrays"),
 		new TC_WELL512_Unsafe("C++ & raw pointers"),
@@ -90,10 +90,10 @@ function bm_well512(){
 function scr_verify_well512() {
 	random_set_seed(WELL512_SEED);
 	//
-	var _cppStruct = new WELL512();
-	_cppStruct.setSeed(WELL512_SEED);
-	var _cppFlat = well512_create();
-	well512_set_seed(_cppFlat, WELL512_SEED);
+	//var _cppStruct = new WELL512();
+	//_cppStruct.setSeed(WELL512_SEED);
+	//var _cppFlat = well512_create();
+	//well512_set_seed(_cppFlat, WELL512_SEED);
 	//
 	ghx_well512_set_seed(WELL512_SEED);
 	var _hxStruct = new hxWELL512();
@@ -105,8 +105,8 @@ function scr_verify_well512() {
 		verify(
 			random(WELL512_MAX),
 			//
-			_cppStruct.float(WELL512_MAX),
-			well512_float(_cppFlat, WELL512_MAX),
+			//_cppStruct.float(WELL512_MAX),
+			//well512_float(_cppFlat, WELL512_MAX),
 			//
 			ghx_well512_float(WELL512_MAX),
 			_hxStruct.float(WELL512_MAX),
