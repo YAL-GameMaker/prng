@@ -34,7 +34,7 @@ self.iteration_count = DEFAULT_ITERATION_COUNT;
 var ew = 360;
 var eh = 32;
 var chartw = 440;
-var charth = 320;
+var charth = 320 - 64;
 var ew2 = chartw;
 
 var c1 = 32;
@@ -67,7 +67,17 @@ self.container = new EmuCore(0, 0, window_get_width(), window_get_height()).AddC
     })
         .SetVacantText("Select a benchmark")
         .SetEntryTypes(E_ListEntryTypes.STRUCTS)
-        .SetID("BENCHMARK TEST LIST"),
+        .SetID("BENCHMARK TEST LIST")
+    	.SetUpdate(function() {
+    		var bench_list = obj_main.container.GetChild("BENCHMARK LIST");
+    		var benchmark/*:Benchmark*/ = bench_list.GetSelectedItem();
+			if (benchmark == undefined) exit;
+			var name = benchmark.source_name;
+			var buildType = code_is_compiled() ? "YYC" : "VM";
+			var buildColor = code_is_compiled() ? "c_yal_yellow" : "c_aqua";
+			var label = $"[{buildColor}]{name}[/c] ({buildType})";
+    		self.SetText(label);
+    	}),
     new EmuRadioArray(c1, EMU_AUTO, ew, eh, "Sort by:", self.sort_type, function() {
         if (obj_main.sort_type != self.value) {
             obj_main.sort_type = self.value;
@@ -141,6 +151,17 @@ self.container = new EmuCore(0, 0, window_get_width(), window_get_height()).AddC
         .SetID("DISPLAY")
         .SetColumns(1, chartw / 3)
         .AddOptions(["Time", "Percent", "Ops/ms"/*, "Ms/op"*/]),
+    new EmuText(c2, EMU_AUTO, chartw, 144-32-8, ""),
+    new EmuText(c2, EMU_AUTO, chartw, 8, "")
+    	.SetUpdate(function() {
+    		// eee
+    		var bench_list = obj_main.container.GetChild("BENCHMARK LIST");
+    		var benchmark/*:Benchmark*/ = bench_list.GetSelectedItem();
+			if (benchmark == undefined) exit;
+			var runtime = benchmark.runtime;
+			if (runtime == undefined) exit;
+			self.SetText($"{runtime.trials} trials, {runtime.iterations} iterations each");
+    	}),
     new EmuRenderSurface(c2, EMU_AUTO, chartw, charth, function(mx, my) {
         // render
         draw_clear_alpha(c_black, 0);
