@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"bm_xorshift64",
+  "%Name":"scr_inline_MINSTD",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"bm_xorshift64",
+  "name":"scr_inline_MINSTD",
   "parent":{
     "name":"Tests",
     "path":"folders/Tests.yy",

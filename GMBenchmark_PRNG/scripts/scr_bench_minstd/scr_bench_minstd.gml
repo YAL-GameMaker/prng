@@ -27,7 +27,7 @@ function TC_MINSTD_Struct(name) : TC(name) constructor {
 	};
 }
 function TC_MINSTD_Flat(name) : TC(name) constructor {
-	rng = minstd_create() /*#as MINSTD*/;
+	rng = minstd_create();
 	init = function() {;minstd_set_seed(rng, MINSTD_SEED);}
 	fn = function(n) {
 		var r = 0;
@@ -45,7 +45,7 @@ function TC_MINSTD_Unsafe(name) : TC(name) constructor {
 	};
 }
 //
-function bm_minstd(){
+function scr_bench_minstd(){
 	var tests/*:Array<TC>*/ = [
 		new TC_MINSTD_HxStruct("GML, struct"),
 		new TC_MINSTD_HxFlat("GML, flat"),
@@ -57,4 +57,15 @@ function bm_minstd(){
 		new TC_MINSTD_Unsafe("C++ & raw pointers"),
 	);
 	return new Benchmark("MINSTD", tests)
+}
+function scr_verify_minstd() {
+	var cpp = new MINSTD();
+	var gml = new hxMINSTD();
+	cpp.setSeed(MINSTD_SEED);
+	gml.setSeed(MINSTD_SEED);
+	repeat (200) {
+		var a = cpp.next();
+		var b = gml.next();
+		verify(a, b);
+	}
 }

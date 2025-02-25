@@ -1,6 +1,6 @@
 #macro os_is_browser (os_browser != browser_not_a_browser)
 
-function bm_gml_struct() {
+function scr_bench_gml_struct() {
 	return new Benchmark("GML, structs", [
 		new TC_WELL512_HxStruct("WELL512"),
 		new TC_MINSTD_HxStruct("MINSTD"),
@@ -8,7 +8,7 @@ function bm_gml_struct() {
 		new TC_Rand0_HxStruct("Rand0"),
 	]);
 }
-function bm_gml_flat() {
+function scr_bench_gml_flat() {
 	return new Benchmark("GML, arrays", [
 		new TC_WELL512_HxFlat("WELL512"),
 		new TC_MINSTD_HxFlat("MINSTD"),
@@ -16,7 +16,7 @@ function bm_gml_flat() {
 		new TC_Rand0_HxFlat("Rand0"),
 	]);
 }
-function bm_gml_global() {
+function scr_bench_gml_global() {
 	return new Benchmark("GML, global", [
 		new TC_WELL512_HxGlobal("WELL512"),
 		new TC_MINSTD_HxGlobal("MINSTD"),
@@ -24,7 +24,7 @@ function bm_gml_global() {
 		new TC_Rand0_HxGlobal("Rand0"),
 	]);
 }
-function bm_cpp_struct() {
+function scr_bench_cpp_struct() {
 	return new Benchmark("C++ & GM structs", [
 		new TC_WELL512_Struct("WELL512"),
 		new TC_MINSTD_Struct("MINSTD"),
@@ -32,7 +32,7 @@ function bm_cpp_struct() {
 		new TC_Rand0_Struct("Rand0"),
 	]);
 }
-function bm_cpp_flat() {
+function scr_bench_cpp_flat() {
 	return new Benchmark("C++ & GM arrays", [
 		new TC_WELL512_Flat("WELL512"),
 		new TC_MINSTD_Flat("MINSTD"),
@@ -40,7 +40,7 @@ function bm_cpp_flat() {
 		new TC_Rand0_Flat("Rand0"),
 	]);
 }
-function bm_cpp_unsafe() {
+function scr_bench_cpp_unsafe() {
 	return new Benchmark("C++ & raw pointers", [
 		new TC_WELL512_Unsafe("WELL512"),
 		new TC_MINSTD_Unsafe("MINSTD"),
@@ -50,22 +50,23 @@ function bm_cpp_unsafe() {
 }
 function scr_benchmarks() {
 	Benchmarks = [
-		bm_gml_struct(),
-		bm_gml_flat(),
-		bm_gml_global(),
+		scr_bench_gml_struct(),
+		scr_bench_gml_flat(),
+		scr_bench_gml_global(),
 	];
 	//
 	if (!os_is_browser && os_type == os_windows) array_push(Benchmarks,
-		bm_cpp_struct(),
-		bm_cpp_flat(),
-		bm_cpp_unsafe(),
+		scr_bench_cpp_struct(),
+		scr_bench_cpp_flat(),
+		scr_bench_cpp_unsafe(),
 	);
 	// algos:
 	array_push(Benchmarks,
-		bm_well512(),
-		bm_minstd(),
-		bm_xorshift64(),
-		bm_rand0(),
+		scr_bench_well512(),
+		scr_bench_minstd(),
+		scr_bench_xorshift64(),
+		scr_bench_rand0(),
+		scr_bench_minstd_mini(),
 	);
 	//
 }

@@ -5,16 +5,28 @@
 function TC_Xorshift64_HxStruct(name) : TC(name) constructor {
 	rng = new hxXorshift64();
 	init = function() {;rng.setSeed(Xorshift64_SEED);}
-	fn = function(n) {;repeat (n) rng.float(Xorshift64_MAX);}
+	fn = function(n) {
+		var r = 0;
+		repeat (n) r += rng.float(Xorshift64_MAX);
+		return r;
+	}
 }
 function TC_Xorshift64_HxFlat(name) : TC(name) constructor {
 	rng = hx_xorshift64_create();
 	init = function() {;hx_xorshift64_set_seed(rng, Xorshift64_SEED);}
-	fn = function(n) {;repeat (n) hx_xorshift64_float(rng, Xorshift64_MAX);}
+	fn = function(n) {
+		var r = 0;
+		repeat (n) r += hx_xorshift64_float(rng, Xorshift64_MAX);
+		return r;
+	}
 }
 function TC_Xorshift64_HxGlobal(name) : TC(name) constructor {
 	init = function() {;ghx_xorshift64_set_seed(Xorshift64_SEED);}
-	fn = function(n) {;repeat (n) ghx_xorshift64_float(Xorshift64_MAX);}
+	fn = function(n) {
+		var r = 0;
+		repeat (n) r += ghx_xorshift64_float(Xorshift64_MAX);
+		return r;
+	}
 }
 // C++:
 function TC_Xorshift64_Struct(name) : TC(name) constructor {
@@ -45,7 +57,7 @@ function TC_Xorshift64_Unsafe(name) : TC(name) constructor {
 	};
 }
 //
-function bm_xorshift64(){
+function scr_bench_xorshift64(){
 	var tests/*:Array<TC>*/ = [
 		new TC_Xorshift64_HxStruct("GML, struct"),
 		new TC_Xorshift64_HxFlat("GML, flat"),
@@ -63,7 +75,7 @@ function scr_verify_xorshift64() {
 	xshCpp.setSeed(500_000);
 	var xshHaxe = new hxXorshift64();
 	xshHaxe.setSeed(500_000);
-	repeat (20) {
+	repeat (200) {
 		var a, b;
 		a = xshCpp.next();
 		b = xshHaxe.next();

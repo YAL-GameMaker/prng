@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"bm_rand0",
+  "%Name":"scr_bench_minstd",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"bm_rand0",
+  "name":"scr_bench_minstd",
   "parent":{
     "name":"Tests",
     "path":"folders/Tests.yy",

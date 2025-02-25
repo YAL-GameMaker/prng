@@ -45,7 +45,7 @@ function TC_Rand0_Unsafe(name) : TC(name) constructor {
 	};
 }
 //
-function bm_rand0(){
+function scr_bench_rand0(){
 	var tests/*:Array<TC>*/ = [
 		new TC_Rand0_HxStruct("GML, struct"),
 		new TC_Rand0_HxFlat("GML, flat"),
@@ -61,16 +61,14 @@ function bm_rand0(){
 function scr_verify_rand0() {
 	//
 	var cpp = new Rand0();
-	cpp.setSeed(_seed);
+	cpp.setSeed(Rand0_SEED);
 	var gml = new hxRand0();
-	gml.setSeed(_seed);
-	trace(gml.state);
+	gml.setSeed(Rand0_SEED);
 	//
-	repeat (20) {
+	repeat (200) {
 		var a, b;
 		a = cpp.next();
 		b = gml.next();
-		trace(a, b);
 		verify(a, b);
 	}
 }

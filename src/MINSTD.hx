@@ -21,9 +21,12 @@ import gml.io.Buffer;
 		state = buf.readIntUnsigned();
 	}
 	//
-	public inline function value() {
+	public inline function next() {
 		state = (state * 48271) % M;
-		return state / M;
+		return state;
+	}
+	public inline function value() {
+		return next() / M;
 	}
 	//
 	public function float(maxExcl:Float):Float {

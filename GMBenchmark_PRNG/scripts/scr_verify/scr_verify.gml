@@ -15,5 +15,6 @@ function scr_verify(){
 	if (!os_is_browser && os_type == os_windows) {
 		scr_verify_xorshift64();
 		scr_verify_rand0();
+		scr_verify_minstd();
 	}
 }

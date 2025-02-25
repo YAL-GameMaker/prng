@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"bm_well512",
+  "%Name":"scr_bench_rand0",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"bm_well512",
+  "name":"scr_bench_rand0",
   "parent":{
     "name":"Tests",
     "path":"folders/Tests.yy",

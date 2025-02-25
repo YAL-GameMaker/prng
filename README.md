@@ -12,8 +12,8 @@ Included generators:
   This is what GameMaker uses for the random functions.
 
 <!--
-Worth thinking about:
-- mt19937: is that too slow for GML?
+Could also think about:
+- mt19937: allegedly just worse than WELL512
 - XorShift128: used by Unity and V8, hard to init without uint64_t
   - https://github.com/v8/v8/blob/main/src/base/utils/random-number-generator.h
   - https://github.com/v8/v8/blob/main/src/base/utils/random-number-generator.cc

@@ -72,7 +72,7 @@ function TC_WELL512_Unsafe(name) : TC(name) constructor {
 	fn = (n) => ;repeat (n) rng.fYYRandom(WELL512_MAX);
 }*/
 
-function bm_well512(){
+function scr_bench_well512(){
 	var tests/*:Array<TC>*/ = [
 		new TC_WELL512_GM("Built-in"),
 		new TC_WELL512_HxStruct("GML, struct"),
@@ -88,6 +88,7 @@ function bm_well512(){
 	return new Benchmark("WELL512", tests);
 }
 function scr_verify_well512() {
+	// this one's easy, can just compare to the built-in generator
 	random_set_seed(WELL512_SEED);
 	//
 	//var _cppStruct = new WELL512();

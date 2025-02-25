@@ -49,7 +49,7 @@ https://www.lomont.org/papers/2008/Lomont_PRNG_2008.pdf
 	}
 	//
 	extern static inline var MAX_VALUE = 4294967296.0;
-	inline function uint32() {
+	inline function next() {
 		#if !rng.global
 		var state = this.state;
 		var index = this.index;
@@ -62,10 +62,10 @@ https://www.lomont.org/papers/2008/Lomont_PRNG_2008.pdf
 		return a;
 	}
 	public inline function value():Float {
-		return uint32() / MAX_VALUE;
+		return next() / MAX_VALUE;
 	}
 	public inline function bits(count) {
-		return uint32() >> (32 - count);
+		return next() >> (32 - count);
 	}
 	public inline function float(maxExcl:Float) {
 		return value() * maxExcl;
@@ -75,7 +75,7 @@ https://www.lomont.org/papers/2008/Lomont_PRNG_2008.pdf
 	}
 	//
 	public inline function int(maxIncl:Int) {
-		var u = uint32();
+		var u = next();
 		if (maxIncl < 0) {
 			return -(u % (1 - Std.int(maxIncl)));
 		} else {
@@ -83,7 +83,7 @@ https://www.lomont.org/papers/2008/Lomont_PRNG_2008.pdf
 		}
 	}
 	public inline function intRange(minIncl:Int, maxIncl:Int) {
-		var u = uint32();
+		var u = next();
 		var start, range;
 		if (minIncl < maxIncl) {
 			start = Std.int(minIncl);
