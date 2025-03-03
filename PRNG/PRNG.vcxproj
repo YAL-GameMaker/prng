@@ -178,6 +178,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="WELL512.h" />
+    <ClInclude Include="Xorshift32.h" />
     <ClInclude Include="XorShift64.h" />
     <ClInclude Include="YYRunnerInterface.h" />
   </ItemGroup>
@@ -202,6 +203,7 @@
     <ClCompile Include="Rand0.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="WELL512.cpp" />
+    <ClCompile Include="Xorshift32.cpp" />
     <ClCompile Include="XorShift64.cpp" />
   </ItemGroup>
   <ItemGroup>

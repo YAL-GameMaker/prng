@@ -87,6 +87,19 @@
           </args>
         </function>
         <function>
+          <name>xorshift32_save_raw</name>
+          <externalName>xorshift32_save_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>xorshift64_save_raw</name>
           <externalName>xorshift64_save_raw</externalName>
           <kind>11</kind>
@@ -115,6 +128,19 @@
         <function>
           <name>minstd_load_raw</name>
           <externalName>minstd_load_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_load_raw</name>
+          <externalName>xorshift32_load_raw</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -465,6 +491,102 @@
           </args>
         </function>
         <function>
+          <name>xorshift32_create_raw</name>
+          <externalName>xorshift32_create_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_destroy_raw</name>
+          <externalName>xorshift32_destroy_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_set_seed_raw</name>
+          <externalName>xorshift32_set_seed_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_next_raw</name>
+          <externalName>xorshift32_next_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_float_raw</name>
+          <externalName>xorshift32_float_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_float_range_raw</name>
+          <externalName>xorshift32_float_range_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_int_raw</name>
+          <externalName>xorshift32_int_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_int_range_raw</name>
+          <externalName>xorshift32_int_range_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>xorshift64_create_raw</name>
           <externalName>xorshift64_create_raw</externalName>
           <kind>11</kind>
@@ -664,6 +786,30 @@
           <externalName>xorshift64_load</externalName>
           <kind>2</kind>
           <help>xorshift64_load(rng, buffer)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_save</name>
+          <externalName>xorshift32_save</externalName>
+          <kind>2</kind>
+          <help>xorshift32_save(rng, buffer)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_load</name>
+          <externalName>xorshift32_load</externalName>
+          <kind>2</kind>
+          <help>xorshift32_load(rng, buffer)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -1008,6 +1154,99 @@
           <externalName>well512_int_range_gm</externalName>
           <kind>2</kind>
           <help>well512_int_range_gm(rng, minIncl:number, maxIncl:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_create</name>
+          <externalName>xorshift32_create</externalName>
+          <kind>2</kind>
+          <help>xorshift32_create()-&gt;</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>xorshift32_destroy</name>
+          <externalName>xorshift32_destroy</externalName>
+          <kind>2</kind>
+          <help>xorshift32_destroy(rng)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_set_seed</name>
+          <externalName>xorshift32_set_seed</externalName>
+          <kind>2</kind>
+          <help>xorshift32_set_seed(rng, new_seed:int)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_next</name>
+          <externalName>xorshift32_next</externalName>
+          <kind>2</kind>
+          <help>xorshift32_next(rng)-&gt;int</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_float</name>
+          <externalName>xorshift32_float</externalName>
+          <kind>2</kind>
+          <help>xorshift32_float(rng, max:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_float_range</name>
+          <externalName>xorshift32_float_range</externalName>
+          <kind>2</kind>
+          <help>xorshift32_float_range(rng, min:number, max:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_int</name>
+          <externalName>xorshift32_int</externalName>
+          <kind>2</kind>
+          <help>xorshift32_int(rng, max:number)-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift32_int_range</name>
+          <externalName>xorshift32_int_range</externalName>
+          <kind>2</kind>
+          <help>xorshift32_int_range(rng, min:number, max:number)-&gt;number</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>

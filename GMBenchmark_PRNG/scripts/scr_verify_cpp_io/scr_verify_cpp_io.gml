@@ -32,6 +32,6 @@ function scr_verify_cpp_io(
 	//
 	var b1 = _cppStruct.next();
 	var b2 = _flat_next(_cppFlat);
-	trace(a1, a2, b1, b2);
+	//trace(a1, a2, b1, b2);
 	verify(a1, a2, b1, b2);
 }

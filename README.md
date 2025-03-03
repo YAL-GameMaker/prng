@@ -1,7 +1,7 @@
 # PRNGs for GameMaker!
 
 **Quick links:**
-[blog post​](https://yal.cc/gamemaker-custom-prngs) · [documentation​](https://yal.cc/docs/gm/prng) · [itch​.io](https://yellowafterlife.itch.io/gamemaker-prng)  
+[blog post​](https://yal.cc/gamemaker-custom-prngs) · [documentation​](https://yal.cc/docs/gm/prng) · [itch​.io](https://yellowafterlife.itch.io/gamemaker-prng) · [source code](https://github.com/YAL-GameMaker/prng)  
 **Supported versions:** GM2022+, GM LTS  
 **Supported platforms:** all  
 **See also:** [more GameMaker things!](https://yellowafterlife.itch.io/)
@@ -72,4 +72,21 @@ Could also think about:
 - https://github.com/cmcqueen/simplerandom/blob/main/c/lecuyer/lfsr88.c
 - https://github.com/khinsen/MMTK/blob/master/Examples/LangevinDynamics/ranf.c
 - https://stackoverflow.com/questions/1046714/what-is-a-good-random-number-generator-for-a-game
+-->
+
+<!--
+**Quick links:**
+[blog post​](https://yal.cc/gamemaker-custom-prngs) · [documentation​](<https://yal.cc/docs/gm/prng>) · [itch​.io](<https://yellowafterlife.itch.io/gamemaker-prng>) · [source code](<https://github.com/YAL-GameMaker/prng>)  
+**Supported versions:** GM2022+, GM LTS  
+**Supported platforms:** all
+
+I implemented a bunch of custom pseudorandom number generators for GameMaker!
+
+These can be used to:
+
+- Have separate random number generators for different parts of the game.
+- Save/load generator's state (for example, to prevent "save scumming", or for networking)
+- Have more control over PRNG in general
+
+In the post I go over what PRNGs are, how these 4 generators work, and some of the common mishaps while working with random functions.
 -->

@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_inline_xorshift",
+  "%Name":"Xorshift32_macros",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_inline_xorshift",
+  "name":"Xorshift32_macros",
   "parent":{
-    "name":"Tests",
-    "path":"folders/Tests.yy",
+    "name":"PRNGs",
+    "path":"folders/PRNGs.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

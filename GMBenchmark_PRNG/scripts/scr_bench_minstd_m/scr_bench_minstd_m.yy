@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_inline_MINSTD",
+  "%Name":"scr_bench_minstd_m",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_inline_MINSTD",
+  "name":"scr_bench_minstd_m",
   "parent":{
     "name":"Tests",
     "path":"folders/Tests.yy",

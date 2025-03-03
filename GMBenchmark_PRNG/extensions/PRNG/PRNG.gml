@@ -6,6 +6,7 @@ global.__prng_ready = true;
 global.__ptrt_WELL512 = ["PRNG/WELL512"];
 global.__ptrt_MINSTD = ["PRNG/MINSTD"];
 global.__ptrt_Xorshift64 = ["PRNG/Xorshift64"];
+global.__ptrt_Xorshift32 = ["PRNG/Xorshift32"];
 global.__ptrt_Rand0 = ["PRNG/Rand0"];
 
 /*
@@ -101,6 +102,22 @@ if (argument0[0] != global.__ptrt_Xorshift64) { show_error("Expected a Xorshift6
 if (int64(argument0[1]) == 0) { show_error("This Xorshift64 is destroyed.", true); exit; }
 buffer_seek(argument1, buffer_seek_relative,
 	xorshift64_load_raw(argument0[1], buffer_get_address(argument1), buffer_tell(argument1))
+);
+
+#define xorshift32_save
+/// (rng, buffer)
+if (argument0[0] != global.__ptrt_Xorshift32) { show_error("Expected a Xorshift32, got " + string(argument0), true); exit }
+if (int64(argument0[1]) == 0) { show_error("This Xorshift32 is destroyed.", true); exit; }
+var _pos = buffer_tell(argument1);
+buffer_write(argument1, buffer_u32, 0);
+xorshift32_save_raw(argument0[1], buffer_get_address(argument1), _pos);
+
+#define xorshift32_load
+/// (rng, buffer)
+if (argument0[0] != global.__ptrt_Xorshift32) { show_error("Expected a Xorshift32, got " + string(argument0), true); exit }
+if (int64(argument0[1]) == 0) { show_error("This Xorshift32 is destroyed.", true); exit; }
+buffer_seek(argument1, buffer_seek_relative,
+	xorshift32_load_raw(argument0[1], buffer_get_address(argument1), buffer_tell(argument1))
 );
 
 #define well512_save

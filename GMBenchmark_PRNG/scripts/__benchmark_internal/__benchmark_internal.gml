@@ -106,7 +106,11 @@ function Benchmark(source_name, tests) constructor {
                 test.runtime.per_ms = iterations / test.runtime.ms;
                 best_time = min(best_time, test.runtime.ms);
                 
-                test.name = string("[#{0}]o[/c] {1}: {2} ms", colour_to_hex(test.color), test.source_name, test.runtime.ms);
+                test.name = string("[#{0}]o[/c] {1}: {2} ms",
+                    colour_to_hex(test.color),
+                    test.source_name,
+                    string_format(test.runtime.ms, 0, 3)
+                );
                 self.runtime.ms += test.runtime.ms;
             }
             

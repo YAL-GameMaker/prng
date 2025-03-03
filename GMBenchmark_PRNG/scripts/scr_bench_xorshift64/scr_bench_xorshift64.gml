@@ -76,13 +76,13 @@ function scr_verify_xorshift64() {
 	xshCpp.setSeed(_seed);
 	var xshHaxe = new hxXorshift64();
 	xshHaxe.setSeed(_seed);
-	m_xorshift_start(_seed);
+	m_xorshift64_start(_seed);
 	for (var step = 0; step < 200; step++) {
 		var a, b, c;
 		a = xshCpp.next();
 		b = xshHaxe.next();
-		m_xorshift_next;
-		c = m_xorshift_var;
+		m_xorshift64_next;
+		c = m_xorshift64_var;
 		verify(a, b, c);
 	}
 	//

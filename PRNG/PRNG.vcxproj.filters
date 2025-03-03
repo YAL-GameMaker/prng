@@ -48,6 +48,9 @@
     <ClInclude Include="Rand0.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Xorshift32.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -72,6 +75,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Rand0.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Xorshift32.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_bench_xorshift32_m",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_bench_xorshift32_m",
+  "parent":{
+    "name":"Tests",
+    "path":"folders/Tests.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

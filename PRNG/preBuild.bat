@@ -18,6 +18,7 @@ if %ERRORLEVEL% EQU 0 (
 	--include "WELL512.h"^
 	--include "MINSTD.h"^
 	--include "XorShift64.h"^
+	--include "XorShift32.h"^
 	--include "Rand0.h"^
 	%projectDir%*.cpp
 )
