@@ -1,0 +1,59 @@
+-D rng.single
+-D sf-hint-folds=false
+gml1.hxml
+
+--each
+-D rng.global
+-D rng.build=MINSTD_global
+--main MINSTD
+--js export/gms1/MINSTD_global.gml
+-D sfgml-main=MINSTD_global
+
+--next
+-D rng.flat
+-D rng.build=MINSTD_flat
+--main MINSTD
+--js export/gms1/MINSTD_flat.gml
+-D sfgml-main=MINSTD_flat
+
+--next
+-D rng.global
+-D rng.build=Rand0_global
+--main Rand0
+--js export/gms1/Rand0_global.gml
+-D sfgml-main=Rand0_global
+
+--next
+-D rng.flat
+-D rng.build=Rand0_flat
+--main Rand0
+--js export/gms1/Rand0_flat.gml
+-D sfgml-main=Rand0_flat
+
+--next
+-D rng.global
+-D rng.build=WELL512_global
+--main WELL512
+--js export/gms1/WELL512_global.gml
+-D sfgml-main=WELL512_global
+
+--next
+-D rng.flat
+-D rng.build=WELL512_flat
+--main WELL512
+--js export/gms1/WELL512_flat.gml
+-D sfgml-main=WELL512_flat
+
+--next
+-D rng.global
+-D rng.build=Xorshift64_global
+--main Xorshift64
+--js export/gms1/Xorshift64_global.gml
+-D sfgml-main=Xorshift64_global
+
+--next
+-D rng.flat
+-D rng.build=Xorshift64_flat
+--main Xorshift64
+--js export/gms1/Xorshift64_flat.gml
+-D sfgml-main=Xorshift64_flat

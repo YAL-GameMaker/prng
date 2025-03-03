@@ -9,6 +9,18 @@ function Xorshift64() constructor {
 		__ptr__ = ptr(buffer_peek(_buf, 0, buffer_u64));
 	} else __ptr__ = pointer_null;
 $code
+	static save = function(_buf) {
+		if (self.__ptr__ == pointer_null) { show_error("This Xorshift64 is destroyed.", true); exit; }
+		var _pos = buffer_tell(_buf);
+		buffer_write(_buf, buffer_u64, 0);
+		xorshift64_save_raw(self.__ptr__, buffer_get_address(_buf), _pos);
+	}
+	static load = function(_buf) {
+		if (self.__ptr__ == pointer_null) { show_error("This Xorshift64 is destroyed.", true); exit; }
+		buffer_seek(_buf, buffer_seek_relative,
+			xorshift64_load_raw(self.__ptr__, buffer_get_address(_buf), buffer_tell(_buf))
+		);
+	}
 }
 */
 dllg gml_ptr<Xorshift64> xorshift64_create() {
@@ -23,6 +35,17 @@ dllg void xorshift64_destroy(gml_ptr_destroy<Xorshift64> rng) {
 // @dllg:method :setSeed
 dllg void xorshift64_set_seed(gml_ptr<Xorshift64> rng, uint32_t new_seed) {
 	rng->init(new_seed);
+}
+
+dllx double xorshift64_save_raw(Xorshift64* rng, uint8_t* buf, double pos) {
+	gml_ostream s(buf + (int)pos);
+	s.write<uint64_t>(rng->state);
+	return 1;
+}
+dllx double xorshift64_load_raw(Xorshift64* rng, uint8_t* buf, double pos) {
+	gml_istream s(buf + (int)pos);
+	rng->state = s.read<uint64_t>();
+	return 8;
 }
 
 // @dllg:method :next

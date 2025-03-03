@@ -1,7 +1,353 @@
 ```set template default.html```
 ```set title PRNG cheat sheet```
 ```set autoapi ext```
+```gmlapi fnames2```
+```set navmenu 1```
 ```set intro
-This is a "cheat sheet" for "PRNG" extension by YellowAfterlife.
+This is a "cheat sheet" for the "PRNG" extension by YellowAfterlife.
+
 The extension can be found on [itch.io](https://yellowafterlife.itch.io/gamemaker-PRNG).
+
+Check out [the blog post](https://yal.cc/gamemaker-custom-prngs) for the big write-up!
 ```
+```gmlapi
+m_minstd_next()
+m_minstd_value()
+m_minstd_start()
+m_minstd_float()
+minstd_create()
+minstd_set_seed()
+minstd_int_range()
+m_minstd_var*
+```
+#[Structure]() {
+	--{
+	-	Constructor-based RNGs are used like this:
+		```gml
+		var rng = new MINSTD();
+		rng.setSeed(1234); // don't forget!
+		var num = rng.intRange(1, 6);
+		```
+	-	Array-based RNGs are used like this:
+		```gml
+		var rng = minstd_create();
+		minstd_set_seed(rng, 1234); // don't forget!
+		var num = minstd_int_range(rng, 1, 6);
+		```
+		The same as constructors, but with underscores and in `snake_case`.
+	-	Global-state RNGs are used like this:
+		```gml
+		minstd_set_seed(1234); // don't forget!
+		var num = minstd_int_range(1, 6);
+		```
+		The same as arrays, but you don't pass an RNG struct/array to the functions.
+	-	Macro-based RNGs are used like this:
+		```gml
+		m_minstd_start(1234);
+		m_minstd_next;
+		var num = 1 + floor(m_minstd_float(6));
+		state = m_minstd_var;
+		```
+	}
+}
+```exec
+function snake(id) {
+	return render("*Note:* This is called `*_" + id + "` in snake_case functions");
+}
+null;
+```
+```setmd inc
+([inc.](^inclusive))
+```
+```setmd ex
+([ex.](^exclusive))
+```
+#[Functions](+RNG) {
+	Each RNG has the following functions:
+	#[new](.) {
+		Constructor-based generators can be constructed without arguments, like this:
+		```gml
+		var rng = new MINSTD();
+		rng.setSeed(1234);
+		var result = rng.intRange(1, 6);
+		```
+		Don't forget to call [setSeed](RNG.setSeed) before you use the generator!
+	}
+	#[destroy()](.) {
+		The C++ extension has a destructor function for each generator
+		that should be called to free up the associated memory on C++ side
+		when you're done using the generator.
+	}
+	---
+	#[next()->](.) {
+		Returns the next "raw" value from the generator.
+		
+		The expected values are: --{
+		-	Between 1 %[inc] and 2147483646 %[inc] for MINSTD
+		-	Between 1 %[inc] and 2147483647 %[inc] for Rand0
+		-	Any 64-bit integer except 0 for Xorshift64
+		-	Between 0 %[inc] and 4294967295 %[inc] for WELL512.
+		}
+	}
+	#[setSeed(seed)](.) {
+		$[snake](set_seed)
+		
+		Sets the random number generator seed.
+		
+		Allowed value ranges vary by generator and are the same as in [next](RNG.next).
+		
+		For WELL512, you might also write your own function
+		that initializes the state based on a larger input string/buffer.
+	}
+	#[save(buffer)](.) {
+		Writes the state of this RNG to a buffer (using `buffer_write`).
+	}
+	#[load(buffer)](.) {
+		Reads the state of this RNG from a buffer (using `buffer_read`).
+	}
+	---
+	#[value()->](.) {
+		Returns a fractional random number between 0 and 1 %[ex].
+		
+		Depending on the algorithm, 0 may be returned.
+	}
+	#[float(max)->](.) {
+		Returns a fractional random number between 0 and `max` %[ex].
+		
+		Depending on the algorithm, 0 may be returned.
+	}
+	#[floatRange(min, max)->](.) {
+		$[snake](float_range)
+		
+		Returns a fractional random number between `min` and `max` %[ex].
+		
+		Depending on the algorithm, `min` may be returned.
+	}
+	#[int(max)->](.) {
+		Returns an integer between 0 %[inc] and `max` %[inc].
+		
+		Depending on the generator, the output can be either a `real` or an `int64`
+		for performance reasons.
+		
+		*Note:* if you need to use this function to generate values in a range larger than
+		what the generator's [next](RNG.next) function can return,
+		consider generating two smaller integers and combining them to avoid range/precision loss.
+	}
+	#[intRange(min, max)->](.) {
+		$[snake](int_range)
+		
+		Returns an integer between `min` %[inc] and `max` %[inc].
+		
+		See above for generating integers in very large ranges.
+	}
+	
+	WELL512 specifically also includes the following:
+	#[intGM(range)->](.) {
+		$[snake](int_gm)
+		
+		Returns an integer between 0 %[inc] and `max` %[inc].
+		
+		This matches the way GameMaker's `irandom` function works
+		(by stacking bits of two integers together).
+	}
+	#[intRangeGM(range)->](.) {
+		$[snake](int_range_gm)
+		
+		Returns an integer between `min` %[inc] and `max` %[inc].
+		
+		This matches the way GameMaker's `irandom` function works
+		(by stacking bits of two integers together).
+	}
+}
+#[Macros](mRNG) {
+	Macro-based PRNG implementations have a smaller API
+	because GM macros have limitations.
+	
+	I'll use MINSTD as an example here.
+	#[m_minstd_start(state)]() {
+		This declares a local variable for the PRNG macros and sets it to `state`.
+	}
+	#[m_minstd_next]() {
+		This statement-macro advances the PRNG state.
+		
+		This should be inserted before retrieving the result,
+		or can be used alone to "skip" over states.
+		```gml
+		m_minstd_next;
+		```
+	}
+	#[m_minstd_value]() {
+		This value-macro turns the output
+		of the latest [next](m_minstd_next) block
+		into a value in 0 .. 1 %[ex] range.
+		
+		Depending on the algorithm, 0 may be included.
+		
+		```gml
+		m_minstd_start(state);
+		m_minstd_next;
+		result = m_minstd_value;
+		state = m_minstd_var;
+		```
+	}
+	#[m_minstd_float(max)]() {
+		This ""function"" macro turns the output
+		of the latest [next](m_minstd_next) block
+		into a value in 0 .. `max` %[ex] range.
+		
+		Depending on the algorithm, 0 may be included.
+		
+		```gml
+		m_minstd_start(state);
+		m_minstd_next;
+		result = m_minstd_float(10);
+		state = m_minstd_var;
+		```
+		
+		*Note:* this is implemented as
+		```gml
+		#macro m_minstd_float m_minstd_value *
+		```
+		so might want to wrap it in parentheses if you're doing complex operator combinations.
+	}
+	#[m_minstd_var]() {
+		This value-macro holds the local variable made for the PRNG macros.
+		
+		You can use it to access the state after you're done generating values
+		and need to store it until the later use.
+		```gml
+		m_minstd_start(state);
+		// ... do some work
+		state = m_minstd_var;
+		```
+	}
+}
+#[DIY functions](other) {
+	I couldn't decide on whether I should include a bunch of identical functions in each generator
+	so I'm going to tell you how these are supposed to work:
+	#[choose(...args)->]() {
+		Single-instance:
+		```gml
+		/// @param ...agrs
+		function choose() {
+			return argument[rng.int(argument_count - 1)];
+		}
+		```
+		Multi-instance:
+		```gml
+		/// @param rng
+		/// @param ...agrs
+		function choose() {
+			return argument[1 + rng.int(argument_count - 2)];
+		}
+		```
+	}
+	#[Weighted "choose"](choose_weighted) {
+		I wrote [a post](https://yal.cc/gamemaker-weighted-choose/) about this.
+		```gml
+		/// @param ...chance_value_pairs
+		function choose_weighted() {
+			var n = 0;
+			for (var i = 1; i < argument_count; i += 2) {
+			    if (argument[i] <= 0) continue;
+			    n += argument[i];
+			}
+			
+			n = rng.float(n);
+			for (var i = 1; i < argument_count; i += 2) {
+			    if (argument[i] <= 0) continue;
+			    n -= argument[i];
+			    if (n < 0) return argument[i - 1];
+			}
+			
+			return argument[0];
+		}
+		```
+	}
+	#[randomize()->]() {
+		GameMaker defines the function something like this:
+		```gml
+		global.__time_start = date_second_span(25569, date_current_datetime()) * 1000_000;
+		function randomize() {
+			var t = global.__time_start + get_timer();
+			var s = ((t >> 32) + (t & 0xffff_ffff))
+					^ ((t >> 16) & 0x0000_ffff)
+					^ ((t << 16) & 0xffff_0000);
+			rng.setSeed(s);
+			return s;
+		}
+		```
+		(or
+		[this](https://github.com/YoYoGames/GameMaker-HTML5/blob/c009844c7f7f2e2897858ab02baf2eb0c513872c/scripts/functions/Function_Maths.js#L582-L584)
+		in HTML5,
+		[except that's wrong](https://github.com/YoYoGames/GameMaker-HTML5/issues/605)
+		at the time of writing)
+		
+		This isn't 100% accurate for what happens on game \[re-]start,
+		but we don't get any other high-precision timing functions,
+		so it is what it is.
+	}
+	#[random_get_seed()->]() {
+		`random_get_seed` returns the last seed that was passed to the RNG
+		(either using `random_set_seed` or `randomize`),
+		which is not very useful and was most commonly misused
+		as people thought that doing
+		```gml
+		var s = random_get_seed();
+		var a = random(10);
+		random_set_seed(s);
+		var b = random(10);
+		```
+		would store/restore the PRNG state and match the value between `a` and `b`.
+		
+		You would want [save](RNG.save) / [load](RNG.load) for that.
+	}
+}
+```gmlapi
+WELL512();
+well512_create();
+well512_set_seed_raw();
+well512_int_range_raw();
+```
+#[Rarer topics](etc) {
+	#[Mixing generators](etc-mix) {
+		If you want to use both struct-based GML and struct-based C++ versions of the same RNG at once,
+		rename one of the constructors.
+		
+		If you want to use array-based and/or single-instance global _or_ GML and C++ based versions
+		of either at once, find-replace the RNG prefix (like `minstd_` for MINSTD) in the script.
+		
+		I do not recommend trying to rename functions in the native extension unless you know what you're doing.
+	}
+	#[Using raw pointers](etc-raw) {
+		Raw pointer API offers the most performance you can squeeze out of the C++ extension
+		at cost of not performing any data validation.
+		
+		That is, if you destroy a PRNG and then attempt to call a function on it,
+		your game will most likely crash.
+		#[Obtaining pointers] {
+			If you are using a struct API, the pointer is stored in the `__ptr__` variable:
+			```gml
+			var rng = new WELL512();
+			rptr = rng.__ptr__;
+			```
+			If you are using an array-based API, the pointer is stored in the second item of the array:
+			```gml
+			var rng = well512_create();
+			rptr = rng[1];
+			```
+		}
+		#[Using pointers] {
+			Raw pointer functions are named exactly like the array-based API functions
+			but with a `_raw` suffix:
+			```gml
+			well512_set_seed_raw(rptr, 1234);
+			var roll = well512_int_range_raw(rptr, 1, 6);
+			```
+		}
+		#[Saving/loading] {
+			Raw save/load functions take a buffer address and position
+			so perhaps don't call these manually unless you really have to.
+		}
+	}
+}

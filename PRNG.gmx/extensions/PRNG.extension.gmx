@@ -48,6 +48,110 @@
       <ProxyFiles/>
       <functions>
         <function>
+          <name>rand0_save_raw</name>
+          <externalName>rand0_save_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_save_raw</name>
+          <externalName>minstd_save_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>well512_save_raw</name>
+          <externalName>well512_save_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_save_raw</name>
+          <externalName>xorshift64_save_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_load_raw</name>
+          <externalName>rand0_load_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_load_raw</name>
+          <externalName>minstd_load_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_load_raw</name>
+          <externalName>xorshift64_load_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>well512_load_raw</name>
+          <externalName>well512_load_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>minstd_create_raw</name>
           <externalName>minstd_create_raw</externalName>
           <kind>11</kind>
@@ -492,6 +596,102 @@
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_save</name>
+          <externalName>minstd_save</externalName>
+          <kind>2</kind>
+          <help>minstd_save(rng, buffer)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>minstd_load</name>
+          <externalName>minstd_load</externalName>
+          <kind>2</kind>
+          <help>minstd_load(rng, buffer)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_save</name>
+          <externalName>rand0_save</externalName>
+          <kind>2</kind>
+          <help>rand0_save(rng, buffer)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>rand0_load</name>
+          <externalName>rand0_load</externalName>
+          <kind>2</kind>
+          <help>rand0_load(rng, buffer)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_save</name>
+          <externalName>xorshift64_save</externalName>
+          <kind>2</kind>
+          <help>xorshift64_save(rng, buffer)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>xorshift64_load</name>
+          <externalName>xorshift64_load</externalName>
+          <kind>2</kind>
+          <help>xorshift64_load(rng, buffer)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>well512_save</name>
+          <externalName>well512_save</externalName>
+          <kind>2</kind>
+          <help>well512_save(rng, buffer)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>well512_load</name>
+          <externalName>well512_load</externalName>
+          <kind>2</kind>
+          <help>well512_load(rng, buffer)</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
             <arg>2</arg>
           </args>
         </function>

@@ -1,0 +1,4 @@
+gml.hxml
+-D sfgml_version=2024.11
+-D sfgml_next
+-D sfgml.modern

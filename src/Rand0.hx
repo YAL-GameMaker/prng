@@ -16,7 +16,9 @@ import gml.io.Buffer;
 	}
 	//
 	public function setSeed(seed:Int):Void {
-		state = cast NativeType.toInt64(seed == 0 ? 1 : seed);
+		var i:Int = NativeType.toInt(seed);
+		if (i == 0) i = 1;
+		state = i;
 	}
 	public function save(buf:Buffer):Void {
 		buf.writeIntUnsigned(state);

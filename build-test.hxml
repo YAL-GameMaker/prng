@@ -1,0 +1,5 @@
+-D rng.single
+gml1.hxml
+-D rng.global
+--main Rand0
+--js export/gms1/Rand0_global.gml

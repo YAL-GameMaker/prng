@@ -71,14 +71,28 @@ function scr_bench_xorshift64(){
 	return new Benchmark("Xorshift64", tests)
 }
 function scr_verify_xorshift64() {
+	var _seed = 500_000;
 	var xshCpp = new Xorshift64();
-	xshCpp.setSeed(500_000);
+	xshCpp.setSeed(_seed);
 	var xshHaxe = new hxXorshift64();
-	xshHaxe.setSeed(500_000);
-	repeat (200) {
-		var a, b;
+	xshHaxe.setSeed(_seed);
+	m_xorshift_start(_seed);
+	for (var step = 0; step < 200; step++) {
+		var a, b, c;
 		a = xshCpp.next();
 		b = xshHaxe.next();
-		verify(a, b);
+		m_xorshift_next;
+		c = m_xorshift_var;
+		verify(a, b, c);
 	}
+	//
+	if (os_has_dlls) scr_verify_cpp_io(
+		new Xorshift64(),
+		xorshift64_create(),
+		Xorshift64_SEED,
+		function(q, s) {;xorshift64_set_seed(q, s)},
+		function(q) {return xorshift64_next(q)},
+		function(q, b) {;xorshift64_save(q, b)},
+		function(q, b) {;xorshift64_load(q, b)},
+	)
 }

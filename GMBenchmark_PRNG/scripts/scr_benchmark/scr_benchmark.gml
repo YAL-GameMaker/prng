@@ -1,4 +1,5 @@
 #macro os_is_browser (os_browser != browser_not_a_browser)
+#macro os_has_dlls !os_is_browser && (os_type == os_windows)
 
 function scr_bench_gml_struct() {
 	return new Benchmark("GML, structs", [
@@ -67,6 +68,7 @@ function scr_benchmarks() {
 		scr_bench_xorshift64(),
 		scr_bench_rand0(),
 		scr_bench_minstd_mini(),
+		scr_bench_xorshift_mini(),
 	);
 	//
 }

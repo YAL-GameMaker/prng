@@ -1,3 +1,4 @@
-gml.hxml
+gml2.hxml
+--main Main
 -D rng.flat
 --js GMBenchmark_PRNG/scripts/Haxe_Flat/Haxe_Flat.yy._

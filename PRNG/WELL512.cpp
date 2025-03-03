@@ -9,6 +9,19 @@ function WELL512() constructor {
 		__ptr__ = ptr(buffer_peek(_buf, 0, buffer_u64));
 	} else __ptr__ = pointer_null;
 $code
+	static save = function(_buf) {
+		if (self.__ptr__ == pointer_null) { show_error("This WELL512 is destroyed.", true); exit; }
+		var _pos = buffer_tell(_buf);
+		buffer_write(_buf, buffer_u32, 0);
+		repeat (8) buffer_write(_buf, buffer_u64, 0);
+		well512_save_raw(self.__ptr__, buffer_get_address(_buf), _pos);
+	}
+	static load = function(_buf) {
+		if (self.__ptr__ == pointer_null) { show_error("This WELL512 is destroyed.", true); exit; }
+		buffer_seek(_buf, buffer_seek_relative,
+			well512_load_raw(self.__ptr__, buffer_get_address(_buf), buffer_tell(_buf))
+		);
+	}
 }
 */
 dllg gml_ptr<WELL512> well512_create() {
@@ -25,7 +38,22 @@ dllg void well512_set_seed(gml_ptr<WELL512> rng, uint32_t new_seed) {
 	rng->init(new_seed);
 }
 
-// @dllg:method :uint32
+dllx double well512_save_raw(WELL512* rng, uint8_t* buf, double pos) {
+	gml_ostream s(buf + (int)pos);
+	s.write<uint32_t>(rng->index);
+	for (int i = 0; i < 16; i++) s.write<uint32_t>(rng->state[i]);
+	return 1;
+}
+dllx double well512_load_raw(WELL512* rng, uint8_t* buf, double pos) {
+	gml_istream s(buf + (int)pos);
+	rng->index = s.read<uint32_t>();
+	for (int i = 0; i < 16; i++) {
+		rng->state[i] = s.read<uint32_t>();
+	}
+	return 4 + 4 * 16;
+}
+
+// @dllg:method :next
 dllg uint32_t well512_next(gml_ptr<WELL512> rng) {
 	return rng->next();
 }

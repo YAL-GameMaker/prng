@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"Haxe_Struct",
   "parent":{
-    "name":"Haxe",
-    "path":"folders/Tests/Haxe.yy",
+    "name":"PRNGs",
+    "path":"folders/PRNGs.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

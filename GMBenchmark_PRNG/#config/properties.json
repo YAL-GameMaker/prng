@@ -3,5 +3,9 @@
     "linterPrefs":{
         "specTypeInst":true,
         "specTypeVar":true
-    }
+    },
+    "rawDirectories":[
+        ".",
+        "..\/export\/PRNG.dmd"
+    ]
 }

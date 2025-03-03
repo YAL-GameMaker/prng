@@ -63,9 +63,22 @@ function scr_verify_minstd() {
 	var gml = new hxMINSTD();
 	cpp.setSeed(MINSTD_SEED);
 	gml.setSeed(MINSTD_SEED);
+	m_minstd_start(MINSTD_SEED);
 	repeat (200) {
 		var a = cpp.next();
 		var b = gml.next();
-		verify(a, b);
+		m_minstd_next;
+		var c = m_minstd_var;
+		verify(a, b, c);
 	}
+	//
+	if (os_has_dlls) scr_verify_cpp_io(
+		new MINSTD(),
+		minstd_create(),
+		MINSTD_SEED,
+		function(q, s) {;minstd_set_seed(q, s)},
+		function(q) {return minstd_next(q)},
+		function(q, b) {;minstd_save(q, b)},
+		function(q, b) {;minstd_load(q, b)},
+	)
 }

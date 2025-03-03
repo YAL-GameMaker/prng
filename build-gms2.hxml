@@ -1,0 +1,75 @@
+-D rng.single
+-D sf-hint-folds=false
+gml2.hxml
+
+--each
+-D rng.global
+-D rng.build=MINSTD_global
+--main MINSTD
+--js export/gms2/MINSTD_global.gml
+
+--next
+-D rng.flat
+-D rng.build=MINSTD_flat
+--main MINSTD
+--js export/gms2/MINSTD_flat.gml
+
+--next
+-D rng.struct
+-D rng.build=MINSTD_struct
+--main MINSTD
+--js export/gms2/MINSTD_struct.gml
+
+--next
+-D rng.global
+-D rng.build=Rand0_global
+--main Rand0
+--js export/gms2/Rand0_global.gml
+
+--next
+-D rng.flat
+-D rng.build=Rand0_flat
+--main Rand0
+--js export/gms2/Rand0_flat.gml
+
+--next
+-D rng.struct
+-D rng.build=Rand0_struct
+--main Rand0
+--js export/gms2/Rand0_struct.gml
+
+--next
+-D rng.global
+-D rng.build=WELL512_global
+--main WELL512
+--js export/gms2/WELL512_global.gml
+
+--next
+-D rng.flat
+-D rng.build=WELL512_flat
+--main WELL512
+--js export/gms2/WELL512_flat.gml
+
+--next
+-D rng.struct
+-D rng.build=WELL512_struct
+--main WELL512
+--js export/gms2/WELL512_struct.gml
+
+--next
+-D rng.global
+-D rng.build=Xorshift64_global
+--main Xorshift64
+--js export/gms2/Xorshift64_global.gml
+
+--next
+-D rng.flat
+-D rng.build=Xorshift64_flat
+--main Xorshift64
+--js export/gms2/Xorshift64_flat.gml
+
+--next
+-D rng.struct
+-D rng.build=Xorshift64_struct
+--main Xorshift64
+--js export/gms2/Xorshift64_struct.gml

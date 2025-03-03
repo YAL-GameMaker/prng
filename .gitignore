@@ -18,6 +18,8 @@ export/*.yymp
 export/*.yymps
 export/*.png
 export/*.zip
+export/gms1/*.gml
+export/gms2/*.gml
 
 *.sdf
 help.rtf

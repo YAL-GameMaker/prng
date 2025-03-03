@@ -54,3 +54,68 @@ if (_buf == undefined) {
 }
 buffer_seek(_buf, buffer_seek_start, 0);
 return _buf;
+
+#define minstd_save
+/// (rng, buffer)
+if (argument0[0] != global.__ptrt_MINSTD) { show_error("Expected a MINSTD, got " + string(argument0), true); exit }
+if (int64(argument0[1]) == 0) { show_error("This MINSTD is destroyed.", true); exit; }
+var _pos = buffer_tell(argument1);
+buffer_write(argument1, buffer_u32, 0);
+minstd_save_raw(argument0[1], buffer_get_address(argument1), _pos);
+
+#define minstd_load
+/// (rng, buffer)
+if (argument0[0] != global.__ptrt_MINSTD) { show_error("Expected a MINSTD, got " + string(argument0), true); exit }
+if (int64(argument0[1]) == 0) { show_error("This MINSTD is destroyed.", true); exit; }
+buffer_seek(argument1, buffer_seek_relative,
+    minstd_load_raw(argument0[1], buffer_get_address(argument1), buffer_tell(argument1))
+);
+
+#define rand0_save
+/// (rng, buffer)
+if (argument0[0] != global.__ptrt_Rand0) { show_error("Expected a Rand0, got " + string(argument0), true); exit }
+if (int64(argument0[1]) == 0) { show_error("This Rand0 is destroyed.", true); exit; }
+var _pos = buffer_tell(argument1);
+buffer_write(argument1, buffer_u32, 0);
+rand0_save_raw(argument0[1], buffer_get_address(argument1), _pos);
+
+#define rand0_load
+/// (rng, buffer)
+if (argument0[0] != global.__ptrt_Rand0) { show_error("Expected a Rand0, got " + string(argument0), true); exit }
+if (int64(argument0[1]) == 0) { show_error("This Rand0 is destroyed.", true); exit; }
+buffer_seek(argument1, buffer_seek_relative,
+    rand0_load_raw(argument0[1], buffer_get_address(argument1), buffer_tell(argument1))
+);
+
+#define xorshift64_save
+/// (rng, buffer)
+if (argument0[0] != global.__ptrt_Xorshift64) { show_error("Expected a Xorshift64, got " + string(argument0), true); exit }
+if (int64(argument0[1]) == 0) { show_error("This Xorshift64 is destroyed.", true); exit; }
+var _pos = buffer_tell(argument1);
+buffer_write(argument1, buffer_u64, 0);
+xorshift64_save_raw(argument0[1], buffer_get_address(argument1), _pos);
+
+#define xorshift64_load
+/// (rng, buffer)
+if (argument0[0] != global.__ptrt_Xorshift64) { show_error("Expected a Xorshift64, got " + string(argument0), true); exit }
+if (int64(argument0[1]) == 0) { show_error("This Xorshift64 is destroyed.", true); exit; }
+buffer_seek(argument1, buffer_seek_relative,
+    xorshift64_load_raw(argument0[1], buffer_get_address(argument1), buffer_tell(argument1))
+);
+
+#define well512_save
+/// (rng, buffer)
+if (argument0[0] != global.__ptrt_WELL512) { show_error("Expected a WELL512, got " + string(argument0), true); exit }
+if (int64(argument0[1]) == 0) { show_error("This WELL512 is destroyed.", true); exit; }
+var _pos = buffer_tell(argument1);
+buffer_write(argument1, buffer_u32, 0);
+repeat (8) buffer_write(argument1, buffer_u64, 0);
+well512_save_raw(argument0[1], buffer_get_address(argument1), _pos);
+
+#define well512_load
+/// (rng, buffer)
+if (argument0[0] != global.__ptrt_WELL512) { show_error("Expected a WELL512, got " + string(argument0), true); exit }
+if (int64(argument0[1]) == 0) { show_error("This WELL512 is destroyed.", true); exit; }
+buffer_seek(argument1, buffer_seek_relative,
+    well512_load_raw(argument0[1], buffer_get_address(argument1), buffer_tell(argument1))
+);

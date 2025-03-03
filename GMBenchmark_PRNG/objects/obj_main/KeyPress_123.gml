@@ -23,7 +23,7 @@ var lines = [
 	$"src: /2025/02/{imageName}",
 	$"full: *.png",
 	$"size: {width}x{height}",
-	$"alt: GMBenchmark results for \"{name}\" read:",
+	$"alt: GMBenchmark results for \"{name}\" on {code_is_compiled() ? "YYC" : "VM"} read:",
 ];
 for (var j = 0, n2 = array_length(benchmark.tests); j < n2; j++) {
 	var test = benchmark.tests[j];

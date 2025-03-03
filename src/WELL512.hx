@@ -30,10 +30,12 @@ https://www.lomont.org/papers/2008/Lomont_PRNG_2008.pdf
 	}
 	public function save(buf:Buffer) {
 		buf.writeIntUnsigned(index);
+		var state = state;
 		for (i in 0 ... 16) buf.writeIntUnsigned(state[i]);
 	}
 	public function load(buf:Buffer) {
 		index = buf.readIntUnsigned();
+		var state = state;
 		for (i in 0 ... 16) state[i] = buf.readIntUnsigned();
 	}
 	//
@@ -124,6 +126,11 @@ https://www.lomont.org/papers/2008/Lomont_PRNG_2008.pdf
 			start = Std.int(maxIncl);
 			range = Std.int(minIncl) - start;
 		}
+		#if (sfgml_version < "2")
+		var r = intGM(range);
+		return start + r;
+		#else
 		return start + intGM(range);
+		#end
 	}
 }

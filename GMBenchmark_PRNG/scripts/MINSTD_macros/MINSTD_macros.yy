@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"MINSTD_macros",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"MINSTD_macros",
+  "parent":{
+    "name":"PRNGs",
+    "path":"folders/PRNGs.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

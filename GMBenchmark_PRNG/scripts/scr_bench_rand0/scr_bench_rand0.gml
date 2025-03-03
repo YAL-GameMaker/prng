@@ -71,4 +71,14 @@ function scr_verify_rand0() {
 		b = gml.next();
 		verify(a, b);
 	}
+	//
+	if (os_has_dlls) scr_verify_cpp_io(
+		new Rand0(),
+		rand0_create(),
+		Rand0_SEED,
+		function(q, s) {;rand0_set_seed(q, s)},
+		function(q) {return rand0_next(q)},
+		function(q, b) {;rand0_save(q, b)},
+		function(q, b) {;rand0_load(q, b)},
+	)
 }

@@ -133,4 +133,13 @@ function scr_verify_well512() {
 		verify(a, b);
 	}
 	//
+	if (os_has_dlls) scr_verify_cpp_io(
+		new WELL512(),
+		well512_create(),
+		WELL512_SEED,
+		function(q, s) {;well512_set_seed(q, s)},
+		function(q) {return well512_next(q)},
+		function(q, b) {;well512_save(q, b)},
+		function(q, b) {;well512_load(q, b)},
+	)
 }

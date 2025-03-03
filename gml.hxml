@@ -1,14 +1,11 @@
 --library sfhx
 --library sfgml
 --class-path src
---main Main
 --dce full
 -D sfgml_dot_static=0
--D sfgml_version=2024.11
--D sfgml_next
--D sfgml.modern
 -D sf_hint_const
 #-D rng.static
 --debug
 #-D sf-dump=pre
 -D sfgml_verbose_brackets
+--macro Macros.bindAfterGenerate()
